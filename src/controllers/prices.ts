@@ -24,8 +24,8 @@ async function fetchPriceFromAPI(scryfallId: string): Promise<PriceResult> {
   }
 
   const resp = await fetch(`https://api.scryfall.com/cards/${scryfallId}`);
-  const json = await resp.json();
-  const usd = parseFloat(json.prices.usd || '0');
+  const json = await resp.json() as any;
+  const usd = parseFloat(json.prices?.usd || '0');
   return { low: usd, average: usd, high: usd, source: 'scryfall' };
 }
 

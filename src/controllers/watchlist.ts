@@ -15,12 +15,10 @@ export async function getWatchlist(req: any, res: any) {
  * Add a card to the watchlist.
  */
 export async function addToWatchlist(req: any, res: any) {
-  const { cardName, scryfallId, notes, tags } = req.body;
+  const { cardName, scryfallId } = req.body;
   const { data, error } = await supabase.from('watchlist').insert({
     card_name: cardName,
     scryfall_id: scryfallId,
-    notes: notes || null,
-    tags: tags || null,
     added_at: new Date().toISOString(),
   }).select().single();
   if (error) return res.status(500).json({ error: error.message });
@@ -38,13 +36,13 @@ export async function removeFromWatchlist(req: any, res: any) {
 }
 
 /**
- * Update notes and tags for a watchlist entry.
+ * Update notes for a watchlist entry.
  */
 export async function updateWatchlist(req: any, res: any) {
   const { id } = req.params;
-  const { notes, tags } = req.body;
+  const { notes } = req.body;
   const { data, error } = await supabase.from('watchlist')
-    .update({ notes: notes || null, tags: tags || null })
+    .update({ notes: notes || null })
     .eq('id', id)
     .select()
     .single();

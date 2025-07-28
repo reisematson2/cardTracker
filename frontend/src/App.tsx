@@ -5,7 +5,7 @@ import PriceChart from './components/PriceChart';
 import { WatchedCard } from './components/CardItem';
 import './index.css';
 
-const API_BASE = import.meta.env.VITE_API_BASE || '';
+const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:3000';
 
 interface PricePoint {
   timestamp: string;
