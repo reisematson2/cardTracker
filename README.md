@@ -29,3 +29,21 @@ Magic: The Gathering card price tracker backend using Express and Supabase.
   - `price` numeric
   - `source` text
   - `timestamp` timestamp
+
+## Frontend
+
+A React (TypeScript) frontend is provided in the `frontend` directory. It uses Vite and implements:
+
+- Card search using the Scryfall autocomplete API.
+- Watchlist grid showing each card's image, latest price and a notes field.
+- Clicking a card displays its price history using Chart.js.
+- Ability to add and remove cards via the backend API.
+
+To run locally (requires internet access to install dependencies):
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+

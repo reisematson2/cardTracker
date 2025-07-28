@@ -14,3 +14,8 @@ declare module '@supabase/supabase-js' {
 declare var process: {
   env: { [key: string]: string | undefined };
 };
+
+declare module 'dotenv' {
+  const dotenv: { config: () => void };
+  export default dotenv;
+}
