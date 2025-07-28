@@ -1,6 +1,8 @@
 import express from 'express';
 import watchlistRoutes from './routes/watchlist';
 import priceRoutes from './routes/prices';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const app = express();
 app.use(express.json());
